@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy JAR app to Azure Web App - todo-app-aakash
 
 on:
@@ -10,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: read #This is required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -22,34 +25,24 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-        run: cd backend && mvn clean install
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/backend/target/*.jar'
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      id-token: write
-      contents: read
-
+      
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: java-app
-
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F422DF2199FE41F7B63635619255B7E2 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3074E9C109F3490B80FD2400BE56B9CD }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_091EC5AE8FA84483AAC8EF4AC6EA8057 }}
-
+      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -57,3 +50,4 @@ jobs:
           app-name: 'todo-app-aakash'
           slot-name: 'Production'
           package: '*.jar'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DB73F3D1CBAF494AB677A978A4928BDE }}
