@@ -2,7 +2,6 @@ package com.example.todo.config;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
-import com.mongodb.connection.SslSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import javax.net.ssl.SSLContext;
@@ -13,8 +12,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
+import java.net.URISyntaxException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Configuration
 @EnableMongoAuditing
@@ -28,7 +31,8 @@ public class MongoConfig {
 
 	@Bean
 	public MongoClient mongoClient() throws Exception {
-		ConnectionString connString = new ConnectionString(mongoUri);
+		String normalizedUri = normalizeMongoUri(mongoUri, allowInvalidCerts);
+		ConnectionString connString = new ConnectionString(normalizedUri);
 		MongoClientSettings.Builder builder = MongoClientSettings.builder()
 				.applyConnectionString(connString);
 
@@ -51,5 +55,18 @@ public class MongoConfig {
 
 		MongoClientSettings settings = builder.build();
 		return MongoClients.create(settings);
+	}
+
+	static String normalizeMongoUri(String uri, boolean allowInvalidCerts) {
+		if (!allowInvalidCerts || uri == null || uri.isBlank()) {
+			return uri;
+		}
+
+		if (uri.contains("tls=true") || uri.contains("tlsAllowInvalidCertificates=true")) {
+			return uri;
+		}
+
+		String separator = uri.contains("?") ? "&" : "?";
+		return uri + separator + "tls=true&tlsAllowInvalidCertificates=true";
 	}
 }
