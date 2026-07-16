@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: todo-backend
+    env: docker
+    plan: free
+    branch: main
+    repo: bhai-shek/ToDo-App
+    path: backend
+    docker:
+      dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: MONGODB_URI
+        fromSecret: MONGODB_URI
