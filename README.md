@@ -132,9 +132,26 @@ http://localhost:5173
 ```
 
 \---
+\---
+## 🚀 Production Build
+
+Build the backend and frontend for deployment:
+
+```bash
+cd backend
+mvn clean package
+```
+
+```bash
+cd frontend
+npm run build
+```
+
+Deploy the generated backend JAR and frontend `dist/` directory to your hosting platform.
+
+---
 
 ## Live Deployment
-
 |Service|URL|
 |-|-|
 |Backend API|`https://your-backend.onrender.com`|
