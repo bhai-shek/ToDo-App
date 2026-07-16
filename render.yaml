@@ -15,3 +15,5 @@ services:
         fromSecret: MONGODB_URI
       - key: JAVA_TOOL_OPTIONS
         value: "-Djavax.net.debug=ssl,handshake"
+      - key: MONGODB_ALLOW_INVALID_CERTS
+        value: "true"
