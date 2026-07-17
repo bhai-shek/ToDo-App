@@ -137,8 +137,7 @@ http://localhost:5173
 
 |Service|URL|
 |-|-|
-|Backend API|`https://your-backend.onrender.com`|
-|Frontend|`https://your-frontend.vercel.app`|
+Live Link: https://to-do-app-one-fawn-22.vercel.app/
 
 > Replace the above URLs with your deployed application URLs.
 

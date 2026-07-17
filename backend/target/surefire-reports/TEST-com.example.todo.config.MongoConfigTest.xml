@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.todo.TodoControllerTest" time="6.361" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.todo.config.MongoConfigTest" time="0.085" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -10,7 +10,6 @@
     <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
     <property name="user.timezone" value="Asia/Calcutta"/>
-    <property name="org.jboss.logging.provider" value="slf4j"/>
     <property name="os.name" value="Windows 11"/>
     <property name="java.vm.specification.version" value="21"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -31,8 +30,6 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
-    <property name="java.awt.headless" value="true"/>
     <property name="surefire.real.class.path" value="C:\Users\abhi\AppData\Local\Temp\surefire656820282754200474\surefirebooter-20260716171002147_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -52,9 +49,7 @@
     <property name="user.dir" value="C:\Users\abhi\.gemini\antigravity\scratch\todo-app\backend"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="14108"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-21.0.3.9-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;c:\Users\abhi\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\abhi\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Users\abhi\AppData\Local\Temp\a370a77d-478c-47f6-8645-62308ed3d465_SU2-v8.5.0-win64-mpi.zip.465\win64-mpi.zip\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\app\abhi\product\21c\dbhomeXE\bin;C:\Program Files\Eclipse Adoptium\jdk-21.0.3.9-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\abhi\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\abhi\AppData\Local\Programs\Python\Python311\;C:\Users\abhi\AppData\Local\Programs\Python\Launcher\;C:\Users\abhi\AppData\Local\Microsoft\WindowsApps;C:\Users\abhi\AppData\Local\Programs\Microsoft VS Code\bin;C:\MinGW\bin;C:\Users\abhi\AppData\Local\Programs\Windsurf\bin;&quot;;C:\Users\abhi\AppData\Roaming\npm;C:\Users\abhi\.dotnet\tools&quot;;C:\Program Files\MongoDB\Server\8.3\bin\;C:\Users\abhi\AppData\Local\Programs\mongosh\;C:\tools\apache-maven-3.9.5\bin;c:\Users\abhi\.vscode\extensions\vscjava.vscode-java-debug-0.59.0\bundled\scripts\noConfigScripts;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
@@ -64,22 +59,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testGetTodoById_NotFound" classname="com.example.todo.TodoControllerTest" time="0.362">
-    <system-out><![CDATA[17:10:03.739 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.todo.TodoControllerTest]: TodoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:10:04.042 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.todo.TodoApplication for test class com.example.todo.TodoControllerTest
-2026-07-16T17:10:04.941+05:30  INFO 14108 --- [           main] com.example.todo.TodoControllerTest      : Starting TodoControllerTest using Java 21.0.3 with PID 14108 (started by abhi in C:\Users\abhi\.gemini\antigravity\scratch\todo-app\backend)
-2026-07-16T17:10:04.951+05:30  INFO 14108 --- [           main] com.example.todo.TodoControllerTest      : No active profile set, falling back to 1 default profile: "default"
-2026-07-16T17:10:08.999+05:30  INFO 14108 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-16T17:10:09.000+05:30  INFO 14108 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-16T17:10:09.005+05:30  INFO 14108 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
-2026-07-16T17:10:09.052+05:30  INFO 14108 --- [           main] com.example.todo.TodoControllerTest      : Started TodoControllerTest in 4.853 seconds (process running for 6.699)
-]]></system-out>
-    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\abhi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.17\byte-buddy-agent-1.14.17.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
-  </testcase>
-  <testcase name="testCreateTodo_BadRequest_BlankTitle" classname="com.example.todo.TodoControllerTest" time="0.232"/>
-  <testcase name="testCreateTodo_Success" classname="com.example.todo.TodoControllerTest" time="0.056"/>
+  <testcase name="leavesUriUntouchedWhenInvalidCertsDisabled" classname="com.example.todo.config.MongoConfigTest" time="0.037"/>
+  <testcase name="appendsTlsOptionsWhenInvalidCertsEnabled" classname="com.example.todo.config.MongoConfigTest" time="0.009"/>
+  <testcase name="leavesUriUntouchedWhenTlsAlreadyConfigured" classname="com.example.todo.config.MongoConfigTest" time="0.002"/>
 </testsuite>
